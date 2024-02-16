@@ -69,7 +69,7 @@ class Base:
             with open(filename, "r") as jsonfile:
                 list_dicts = Base.from_json_string(jsonfile.read())
                 return [cls.create(**d) for d in list_dicts]
-        except IOError:
+        except FileNotFoundError:
             return []
 
     @classmethod
@@ -129,4 +129,3 @@ class Base:
             pen.right(90)
 
         window.exitonclick()
-
